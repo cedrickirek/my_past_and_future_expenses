@@ -3,7 +3,6 @@ FROM python:3.10-slim
 
 # Set working directory in container
 WORKDIR /app
-
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1

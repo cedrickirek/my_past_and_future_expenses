@@ -40,17 +40,14 @@ st.markdown("""
 """, unsafe_allow_html=True)
 @st.cache_data
 def load_data():
-    """Load expense data from CSV or generate if not exists"""
+    """Load expense data from CSV"""
     path = "cedric_yearly_expenses_2024.csv"
     if os.path.exists(path):
         df = pd.read_csv(path)
         df['Date'] = pd.to_datetime(df['Date'])
     else:
         print("no file found")
-        # If file doesn't exist, generate it
-        # from generate_data.ipynb import generate_cedric_yearly_approximate_expenses
-        # df = generate_cedric_yearly_approximate_expenses()
-        # df.to_csv('student_expenses_2024.csv', index=False)
+
     
     # Add additional columns for analysis
     df['Month'] = df['Date'].dt.month
