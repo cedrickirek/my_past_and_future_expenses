@@ -46,9 +46,9 @@ def load_data():
         df = pd.read_csv(path)
         df['Date'] = pd.to_datetime(df['Date'])
     else:
-        print("no file found")
+        st.error(f"CSV file not found at {path}")
+        return pd.DataFrame()  # return empty DataFrame    
 
-    
     # Add additional columns for analysis
     df['Month'] = df['Date'].dt.month
     df['Month_Name'] = df['Date'].dt.strftime('%B')
@@ -56,7 +56,6 @@ def load_data():
     df['Season'] = df['Date'].apply(lambda x: get_season(x.month))
     
     return df
-
 
 def get_season(month):
     """Determines season from month"""

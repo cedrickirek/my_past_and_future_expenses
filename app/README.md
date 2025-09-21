@@ -16,65 +16,81 @@ A comprehensive Streamlit application for visualizing and predicting my expenses
 ## 🏗️ Project Structure
 
 ```
-/app
-  ├── my_expenses.py                      # Main Streamlit application
-  ├── requirements.txt                    # Python dependencies
-  ├── Dockerfile                          # Docker configuration
-  ├── cedric_yearly_expenses_2024.csv     # csv file with expenses
-  ├── .gitignore                          # files to be ignored 
-  └── README.md                           # Project documentation
-/.github
-/test_my_expenses.py
+.
+├── app/                                 # Streamlit app and data
+│   ├── my_expenses.py                   # Main Streamlit application
+│   ├── requirements.txt                 # Python dependencies
+│   ├── Dockerfile                       # Docker configuration for containerization
+│   └── cedric_yearly_expenses_2024.csv  # Synthetic expense data (generated)
+├── .github/                             # GitHub Actions workflows for CI/CD
+│   └── workflows/
+│       └── ci.yml                       # Continuous Integration and Deployment pipeline
+├── images/                              # Screenshots for the README
+│   ├── pie_chart.png
+│   ├── bar_chart.png
+├── test_my_expenses.py                  # Comprehensive test suite (Unit, Integration, Regression, Performance)
+└── README.md                            # Project documentation
 
 ```
+
 
 ## 📋 Prerequisites
 
 - pip (Python package manager)
-- Docker (optional, for containerized deployment)
+- Docker (for containerized deployment)
+
+
 
 ## 🚀 Quick Start
 
-### Option 1: Run Locally
-
-1. **Clone or create the project directory:**
-```bash
-mkdir expenses-app
-cd expenses-app
-```
-
-2. **Create all the project files** (copy the provided code into respective files)
-
-3. **Install dependencies:**
-```bash
-pip install -r requirements.txt
-```
-
-4. **Generate the data:**
-```bash
-python generate_data.py
-```
-
-5. **Run the Streamlit app:**
-```bash
-streamlit run app.py
-```
-
-6. **Open your browser** and navigate to `http://localhost:8501`
-
-### Option 2: Run with Docker
-
+### Option 1: Run with Docker
 1. **Build the Docker image:**
-```bash
-docker build -t student-expenses-app .
-```
+[Bash]
+docker build -t student-expenses-app ./app
 
-2. **Run the Docker container:**
-```bash
+2. **Run the Docker container**
+[Bash]
 docker run -p 8501:8501 student-expenses-app
-```
 
-3. **Access the app** at `http://localhost:8501`
+3. **Access the application**
+Open the desktop app Docker to launch the website or go to http://localhost:8501.
+
+
+### Option 2: Run Locally
+
+1. **Clone the repository:**
+[Bash]
+git clone https://github.com/cedrickirek/my_past_and_future_expenses.git
+cd expenses-app
+
+2. **Navigate to the app directory and install dependencies:**
+[Bash]
+cd app
+pip install -r requirements.txt
+
+3. **Run the Streamlit app:**
+streamlit run my_expenses.py
+
+4. **Open your browser** and go to `http://localhost:8501`
+
+
+
+
+## 🚀 Testing and CI/CD
+
+This project is equipped with a robust CI/CD pipeline, defined in .github/workflows/ci.yml.
+
+1. **Unit Tests:** Validate individual functions like data loading and seasonal mapping.
+
+2. **Integration Tests:** Ensure different components, such as the machine learning model and data processing, work together seamlessly.
+
+3. **Performance Tests:** Analyze the application's performance with large datasets.
+
+4. **Docker Tests:** Build and test the Docker container to ensure successful deployment.
+
+*All tests are automatically executed on every push and pull request to the repository, ensuring code quality and stability.*
+
+
 
 
 ## 🎯 Using the Prediction Feature
