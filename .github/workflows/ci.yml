@@ -20,12 +20,17 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Install dependencies and run tests
+      - name: Install dependencies
         run: |
           pip install -r app/requirements.txt
-          pip install pytest
+          pip install pytest pytest-mock
+
+      - name: Run tests
+        run: |
+          # Add the 'app' directory to the Python path
+          export PYTHONPATH=./app:$PYTHONPATH
           pytest test_my_expenses.py
-          
+
   docker-build-and-run:
     runs-on: ubuntu-latest
     needs: run-tests
