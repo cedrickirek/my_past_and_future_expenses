@@ -59,9 +59,7 @@ def load_data():
 
 
 def get_season(month):
-    """
-    Determines season from month
-    """
+    """Determines season from month"""
     if month in [12, 1, 2]:
         return 'Winter'
     elif month in [3, 4, 5]:
@@ -101,9 +99,7 @@ def train_prediction_model(df):
 
 
 def main():
-    """
-    Main application function
-    """
+    """Main application function"""
     
     # Title and description
     st.title("📊 Student Expenses Tracker & Predictor")
