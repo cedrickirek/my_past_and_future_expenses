@@ -1,7 +1,8 @@
 # 📊 Student Expenses Tracker & Predictor
 
 A comprehensive Streamlit application for visualizing and predicting my expenses as a student throughout the year. This app generates synthetic expense data and provides insightful visualizations along with machine learning-based expense predictions.
-
+## Quick illustration snapshot in images folder
+You can see **2 illustration images** of the charts on the app in the image folder above!
 ## ✨ Features
 
 - **📈 Interactive Dashboard**: Real-time visualization of expenses with filters
