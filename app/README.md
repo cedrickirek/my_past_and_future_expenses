@@ -44,6 +44,8 @@ A comprehensive Streamlit application for visualizing and predicting my expenses
 ## 🚀 Quick Start
 
 ### Option 1: Run with Docker
+1. **Initialize:**
+Go to the '/root directory/app' and run 'docker build -t streamlit'
 1. **Build the Docker image:**
 [Bash]
 docker build -t student-expenses-app ./app
