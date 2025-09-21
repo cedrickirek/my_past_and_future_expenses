@@ -44,7 +44,13 @@ def load_data():
     path = "cedric_yearly_expenses_2024.csv"
     if os.path.exists(path):
         df = pd.read_csv(path)
-        df['Date'] = pd.to_datetime(df['Date'])
+        try:
+            df['Date'] = pd.to_datetime(df['Date'], format='%d/%m/%Y')
+        except ValueError:
+            try:
+                df['Date'] = pd.to_datetime(df['Date'], dayfirst=True)
+            except ValueError:
+                df['Date'] = pd.to_datetime(df['Date'], format='mixed')
     else:
         st.error(f"CSV file not found at {path}")
         return pd.DataFrame()  # return empty DataFrame    
