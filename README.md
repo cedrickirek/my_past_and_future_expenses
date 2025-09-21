@@ -6,7 +6,7 @@ You can see **2 illustration images** of the charts on the app in the image fold
 ## ✨ Features
 
 - **📈 Interactive Dashboard**: Real-time visualization of expenses with filters
-- **💰 Expense Categories**: Track spending across multiple categories: Groceries shoping
+- **💰 Expense Categories**: Track spending across multiple categories: Groceries shopping
 - **📊 Multiple Visualizations**: 
   - Pie chart for category distribution
   - Bar chart for monthly expenses
@@ -23,6 +23,9 @@ You can see **2 illustration images** of the charts on the app in the image fold
 │   ├── requirements.txt                 # Python dependencies
 │   ├── Dockerfile                       # Docker configuration for containerization
 │   └── cedric_yearly_expenses_2024.csv  # Synthetic expense data (generated)
+│   └── .gitignore                       # files to ignore
+│   └── README.md                        # documentation
+│   └── __init__.py                      # for reference
 ├── .github/                             # GitHub Actions workflows for CI/CD
 │   └── workflows/
 │       └── ci.yml                       # Continuous Integration and Deployment pipeline
