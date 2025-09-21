@@ -70,7 +70,10 @@ def get_season(month):
 
 
 def train_prediction_model(df):
-    """Train a linear regression model to predict monthly expenses"""
+    """Trains a prediction model on the provided DataFrame."""
+    if df.empty:
+        # Raise an error if the DataFrame is empty
+        raise ValueError("Input DataFrame for model training is empty.")
     # Aggregate data by month
     monthly_data = df.groupby(['Month', 'Season']).agg({
         'Amount': 'sum',

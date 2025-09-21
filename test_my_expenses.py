@@ -12,6 +12,7 @@ import tempfile
 from datetime import datetime, date
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import LabelEncoder
+from app.my_expenses import get_season
 
 # Import functions from the main app
 # Assuming the main file is named my_expenses.py based on Dockerfile
@@ -126,19 +127,20 @@ class TestUtilityFunctions:
 
 
 class TestPredictionModel:
-    """Test machine learning prediction functionality"""
-    
+    """Test machine learning prediction functionality"""   
     def create_test_dataframe(self):
-        """Create test DataFrame for ML testing"""
-        data = {
-            'Date': pd.date_range('2024-01-01', periods=50, freq='D'),
-            'Amount': np.random.uniform(10, 500, 50),
-            'Category': np.random.choice(['Rent', 'Groceries', 'Transport'], 50),
-            'Internship_period': np.random.choice([True, False], 50),
-            'Part_time_job_period': np.random.choice([True, False], 50)
+        """Creates a sample DataFrame for testing all seasons and features."""
+        test_data = {
+            'Date': pd.to_datetime(['2024-01-01', '2024-04-01', '2024-07-01', '2024-10-01']),
+            'Amount': [100.0, 200.0, 300.0, 400.0],
+            'Category': ['Rent', 'Groceries', 'Transport', 'Entertainment'],
+            'Internship_period': [True, False, False, True],
+            'Part_time_job_period': [False, True, False, True]
         }
-        df = pd.DataFrame(data)
+        df = pd.DataFrame(test_data)
         df['Month'] = df['Date'].dt.month
+        # Ensure 'get_season' is imported at the top of your test file if it's not
+        from app.my_expenses import get_season
         df['Season'] = df['Date'].apply(lambda x: get_season(x.month))
         return df
     
@@ -174,7 +176,7 @@ class TestPredictionModel:
 
 
 class TestDataValidation:
-    """Test data validation and edge cases"""
+    """Test data validation and edge cases""" 
     
     def test_amount_values_positive(self):
         """Test that amount values are positive"""
