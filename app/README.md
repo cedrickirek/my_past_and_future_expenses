@@ -110,13 +110,6 @@ Edit `my_expenses.py` to modify:
 - KPI metrics
 - Prediction model features
 
-## 📦 Dependencies
-
-- **streamlit**: Web app framework
-- **pandas**: Data manipulation
-- **numpy**: Numerical operations
-- **plotly**: Interactive visualizations
-- **scikit-learn**: Machine learning models
 
 ## 🐛 Troubleshooting
 
@@ -125,22 +118,17 @@ Edit `my_expenses.py` to modify:
 1. **Port already in use:**
    - Change the port: `streamlit run app.py --server.port=8502`
 
-2. **Data not generating:**
-   - Ensure `generate_data.py` runs successfully
-   - Check for `student_expenses_2024.csv` in the project directory
-
-3. **Docker build fails:**
+2. **Docker build fails:**
    - Ensure Docker daemon is running
    - Check internet connection for package downloads
 
-## 🤝 Contributing
+## 🤝 Contributing and License
 
-Feel free to enhance this project by:
+This project is private and intended for a class assignment. Nevertheless, Feel free to enhance this project by:
+
 - suggesting different categorisations
 - Creating additional visualizations
 - Adding data export features
 - Implementing budget tracking
 
-## 📄 License
-
-This project is private 
+**License:** This project is for private use.
